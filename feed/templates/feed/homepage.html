@@ -4,7 +4,36 @@
 
 {% block body %}
     {% for post in posts %}
-        {{ post.text }} written on {{ post.date }}
-        <hr>
+
+
+    <!-- component is from https://tailwindcomponents.com/component/post-artical -->
+    <div class="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md" style='width: 50rem'>
+        <div class="flex justify-between items-center">
+            <span class="font-light text-gray-600">{{ post.date|date:"F j, Y, g:i:a" }}</span>
+            {% comment %} <a class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500" href="#">Design</a> {% endcomment %}
+        </div>
+        <div class="mt-2">
+            <p class="mt-2 text-gray-600">{{ post.text }}</p>
+        </div>
+        <div class="flex justify-between items-center mt-4">
+            <a class="text-blue-600 hover:underline" href="#">
+                {# TODO Add a detail url #}
+                Read more
+            </a>
+            <div>
+                {# TODO: User needs a link to their bio and a photo and a thumbnail and a name #}
+                <a class="flex items-center" href="#">
+                    <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80" alt="avatar">
+                    <h1 class="text-gray-700 font-bold">Khatab wedaa</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     {% endfor %}
 {% endblock %}
