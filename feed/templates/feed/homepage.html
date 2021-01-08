@@ -1,10 +1,10 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block title %}Changed the title of the homepage{% endblock %}
 
 {% block body %}
     {% for post in posts %}
-
 
     <!-- component is from https://tailwindcomponents.com/component/post-artical -->
     <div class="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md" style='width: 50rem'>
@@ -23,8 +23,10 @@
             <div>
                 {# TODO: User needs a link to their bio and a photo and a thumbnail and a name #}
                 <a class="flex items-center" href="#">
-                    <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80" alt="avatar">
-                    <h1 class="text-gray-700 font-bold">Khatab wedaa</h1>
+                    {% thumbnail post.author.profile.image "373x372" crop="center" as im %}
+                        <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="{{ im.url }}" alt="avatar">
+                    {% endthumbnail %}
+                    <h1 class="text-gray-700 font-bold">{{ post.author.username }}</h1>
                 </a>
             </div>
         </div>
