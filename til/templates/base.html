@@ -50,6 +50,38 @@
         {% block content %}{% endblock %}
     {% endblock %}
   </div>
+
+
+{% if request.user.is_authenticated %}
+  <!-- component -->
+  <div class="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800 bg-opacity-75 hidden js-modal">
+    <div class="bg-white rounded-lg w-1/2">
+      <div class="flex flex-col items-start p-4">
+        <div class="flex items-center w-full">
+          <div class="text-gray-900 font-medium text-lg">New post</div>
+      <svg class="ml-auto fill-current text-gray-700 w-6 h-6 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+        </svg>
+        </div>
+        <hr>
+        <div class="">
+          {# TODO: Add the ajax form #}
+        </div>
+        <hr>
+        <div class="ml-auto">
+          <button class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-1 px-3 inline-flex items-center text-sm mt-4 js-submit" type="button">
+              <span class="mr-2">Create Post</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="currentcolor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+              </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
 </div>
 
 </body>
