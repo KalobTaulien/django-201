@@ -16,12 +16,11 @@
             <p class="mt-2 text-gray-600">{{ post.text }}</p>
         </div>
         <div class="flex justify-between items-center mt-4">
-            <a class="text-blue-600 hover:underline" href="#">
-                {# TODO Add a detail url #}
+            <a class="text-blue-600 hover:underline" href="{% url 'feed:detail' post.id %}">
                 Read more
             </a>
             <div>
-                {# TODO: User needs a link to their bio and a photo and a thumbnail and a name #}
+                {# TODO: add url below #}
                 <a class="flex items-center" href="#">
                     {% thumbnail post.author.profile.image "373x372" crop="center" as im %}
                         <img class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block" src="{{ im.url }}" alt="avatar">
