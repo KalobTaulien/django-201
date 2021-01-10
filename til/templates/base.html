@@ -55,6 +55,7 @@
 
 
 {% if request.user.is_authenticated %}
+  {# TODO: Move the modal into an included file in order to keep base.html clean and organized #}
   <!-- component -->
   <div class="flex items-center justify-center fixed left-0 bottom-0 w-full h-full bg-gray-800 bg-opacity-75 hidden js-modal">
     <div class="bg-white rounded-lg w-1/2">
